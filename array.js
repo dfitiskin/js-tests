@@ -1,60 +1,29 @@
 /**
- * @param {} nidle
- * @return {Integer}
- */
-Array.prototype.find = function (nidle) 
-{
-	for (var i = 0, imax = this.length; i < imax; i++)
-	{
-		if (nidle === this[i])
-		{
-			return i;
-		}
-	}
-	return false;
-};
-
-/**
- * @param {Array} nidle
- * @return {Array}
- */
-Array.prototype.findAll = function (nidle) 
-{
-	var result = [];
-    for (var i = 0, imax = this.length; i < imax; i++)
-    {
-        if (nidle === this[i])
-        {
-            result.push(i);
-        }
-    }
-    return result;
-};
-
-/**
  * @param {Array} highstack
  * @param {Array} nidle
  * @return {Integer}
  */
 function arrayFind(highstack, nidle)
 {
-	var starts = highstack.findAll(nidle[0]);
-	for (var i = 0, imax = starts.length; i < imax; i++)
+	var start = nidle.shift();
+	for (var i = 0, imax = (highstack.length - nidle.length); i < imax; i++)
 	{
-		for (var k = 0, kmax = nidle.length, okFlag = true; okFlag && k < kmax; k++)
+		if (start === highstack[i])
 		{
-			if (nidle[k] !== highstack[k + starts[i]])
+			for (var j = 0, jmax = nidle.length, okFlag = true; okFlag && j < jmax; j++)
 			{
-				okFlag = false;
+				if (nidle[j] !== highstack[i + j + 1])
+				{
+					okFlag = false;
+				}
+			}
+			
+			if (okFlag)
+			{
+				return i;
 			}
 		}
-		
-		if (okFlag)
-		{
-			return starts[i];
-		}
 	}
-	return false;
 }
 
 /**

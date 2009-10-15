@@ -2,24 +2,9 @@
 <head>
 <script type="text/javascript" src="./array.js"></script>
 <script type="text/javascript">
-function test0()
-{
-	var arr1 = [4, 8, 15, 16, 23, 42];
-    var res = arr1.find(15);
-
-    if (2 == res)
-    {
-        alert('test0 OK');
-    }
-    else
-    {
-        alert('test0 ERROR');
-    }
-}
-
 function test1()
 {
-	var arr1 = [15, 15, 16, 23, 42];
+	var arr1 = [15, 15, 14, 15, 16];
     var arr2 = [15, 16];
 
     if (1 === arrayFind(arr1, arr2))
@@ -32,18 +17,7 @@ function test1()
     }
 }
 
-function test2()
-{
-	var arr2 = [15, 16];
-    var res = toFunctionArray(arr2);
-
-    alert(res[0]());
-    alert(res[1]());
-}
-
-test0();
 test1();
-test2();
 </script>
 </head>
 <body>
