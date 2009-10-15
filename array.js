@@ -9,9 +9,10 @@ Array.prototype.find = function (nidle)
 	{
 		if (nidle === this[i])
 		{
-			return i;
+			return i * 1;
 		}
 	}
+	return false;
 };
 
 /**
@@ -24,9 +25,9 @@ function arrayFind(highstack, nidle)
 	var i, k;
 	if (i = highstack.find(nidle[0]))
 	{
-		for (k in niddle)
+		for (k in nidle)
 		{
-			if (niddle[k] !== highstack[k + i])
+			if (!isNaN(k) && nidle[k] !== highstack[(k * 1) + i])
 			{
 				return false;
 			}
@@ -46,13 +47,13 @@ function toFunctionArray(arr)
 	var result = [];
 	for (i in arr)
 	{
-		var k = arr[i];
-		result.push(
-            function ()
+		result[i] = function(k)
+		{
+            return function()
             {
             	return k;
-            }
-		);
+            };
+		}(arr[i]);
 	}
 	return result;
 }
