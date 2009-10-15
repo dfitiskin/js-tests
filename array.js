@@ -4,12 +4,11 @@
  */
 Array.prototype.find = function (nidle) 
 {
-	var i;
-	for (i in this)
+	for (var i = 0, imax = this.length; i < imax; i++)
 	{
 		if (nidle === this[i])
 		{
-			return i * 1;
+			return i;
 		}
 	}
 	return false;
@@ -22,12 +21,12 @@ Array.prototype.find = function (nidle)
  */
 function arrayFind(highstack, nidle)
 {
-	var i, k;
-	if (i = highstack.find(nidle[0]))
+	var i = highstack.find(nidle[0]);
+	if (false !== i)
 	{
-		for (k in nidle)
+		for (var k = 0, kmax = nidle.length; k < kmax; k++)
 		{
-			if (!isNaN(k) && nidle[k] !== highstack[(k * 1) + i])
+			if (nidle[k] !== highstack[k + i])
 			{
 				return false;
 			}
@@ -45,7 +44,7 @@ function arrayFind(highstack, nidle)
 function toFunctionArray(arr)
 {
 	var result = [];
-	for (i in arr)
+	for (var i = 0, imax = arr.length; i < imax; i++)
 	{
 		result[i] = function(k)
 		{
