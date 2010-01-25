@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./template.js"></script>
+<script type="text/html" id="itemTpl">
+<div class="preview">
+    <p class="image">
+        <a href="{url}"><img src="{thumb_src}" width="{thumb_width}" height="{thumb_height}"/></a>
+    </p>
+    <p class="caption">{caption}</p>
+</div>
+</script>
+
+<script type="text/javascript">
+var data = {
+        url: 'http://yandex.ru/',
+        thumb_src: 'http://ejohn.org/files/ninja.74.jpg',
+        thumb_width: 50,
+        thumb_height: 75,
+        caption: 'JavaScript is охуенный!'
+}
+
+window.onload = function()
+{
+    var t = new Template('itemTpl');
+    t.renderInto(data, 'itemWrap');
+} 
+</script>
+
+</head>
+<body>
+<div id="itemWrap"></div>
+
+</body>
+</html>
