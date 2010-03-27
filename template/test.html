@@ -12,26 +12,37 @@
     <p class="caption">{caption}</p>
 </div>
 </script>
+<script type="text/html" id="externalTpl" src="tpl.html"></script>
 
 <script type="text/javascript">
 var data = {
-        url: 'http://yandex.ru/',
-        thumb_src: 'http://ejohn.org/files/ninja.74.jpg',
-        thumb_width: 50,
-        thumb_height: 75,
-        caption: 'JavaScript is охуенный!'
+    url: 'http://yandex.ru/',
+    thumb_src: 'http://ejohn.org/files/ninja.74.jpg',
+    thumb_width: 50,
+    thumb_height: 75,
+    caption: 'JavaScript is охуенный!'
 }
 
-window.onload = function()
+var data2 = {
+    text: 'прошла успешно'
+}
+
+function apply()
 {
     var t = new Template('itemTpl');
     t.renderInto(data, 'itemWrap');
-} 
+
+    var t2 = new Template('externalTpl');
+    t2.renderInto(data2, 'itemWrap2');
+}
+
+window.onload = apply;
 </script>
 
 </head>
 <body>
 <div id="itemWrap"></div>
+<div id="itemWrap2"></div>
 
 </body>
 </html>
